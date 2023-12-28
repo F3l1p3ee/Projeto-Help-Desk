@@ -1,4 +1,6 @@
 <?php 
+    session_start();
+
 // Usuários do sistema
     $usuarios_app = [
         ["email" => "adm@teste.com", "senha" => "123456"],
@@ -17,8 +19,10 @@
 
 // Redirecionamento caso der OK
     if($usuario_autenticado){
-        header("Location: home.php");
+        echo "Usuário autenticado";
+        $_SESSION["autenticado"] = "SIM";
     } else {
+        $_SESSION["autenticado"] = "NÃO";
         header("Location: index.php?login=erro");
     }
 ?>
