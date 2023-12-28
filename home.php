@@ -1,11 +1,4 @@
-<?php 
-  session_start();
-
-// O código verifica se o usuário está autenticado. Caso não esteja e queira acessar esta página, ele será redireciondo para a página index.php e com uma msg de erro diferente
-  if(!isset($_SESSION["autenticado"]) or $_SESSION["autenticado"] != "SIM"){
-    header("Location: index.php?login=erro2");
-  }
-?>
+<?php require_once("validador_acesso.php") ?>
 
 <html>
   <head>
@@ -42,12 +35,19 @@
             </div>
             <div class="card-body">
               <div class="row">
+                
                 <div class="col-6 d-flex justify-content-center">
-                  <img src="formulario_abrir_chamado.png" width="70" height="70">
+                  <a href="abrir_chamado.php">
+                    <img src="formulario_abrir_chamado.png" width="70" height="70">
+                  </a>
                 </div>
+
                 <div class="col-6 d-flex justify-content-center">
-                  <img src="formulario_consultar_chamado.png" width="70" height="70">
+                  <a href="consultar_chamado.php">
+                    <img src="formulario_consultar_chamado.png" width="70" height="70">
+                  </a>  
                 </div>
+
               </div>
             </div>
           </div>
