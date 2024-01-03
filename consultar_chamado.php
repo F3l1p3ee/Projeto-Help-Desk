@@ -2,7 +2,7 @@
 
 <?php 
 // Abrindo o arquivo de chamados registrados para leitura
-$arquivo = fopen('chamado_registrado.txt', 'r');
+$arquivo = fopen('../../app_help_desk/chamado_registrado.txt', 'r');
 $chamados = [];
 
 // Percorrendo cada uma das linhas do arquivo

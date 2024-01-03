@@ -7,7 +7,7 @@ $categoria = str_replace("#", " ", $_POST["categoria"]);
 $descricao = str_replace("#", " ", $_POST["descricao"]);
 
 // Criando e abrindo o arquivo
-$chamado_registrado = fopen("chamado_registrado.txt", "a");
+$chamado_registrado = fopen("../../app_help_desk/chamado_registrado.txt", "a");
 
 $texto = $_SESSION['id_user'] . '#' . $titulo . '#' . $categoria . '#' . $descricao . PHP_EOL;
 
