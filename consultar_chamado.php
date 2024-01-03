@@ -61,14 +61,22 @@ fclose($arquivo);
 <!-- Fazendo uma iteração para capturar cada elemento da array e imprimindo entre as tags HTML -->
             <?php foreach($chamados as $chamado) { ?>
               
-              <?php
-                $chamados_dados = explode('#', $chamado);
-                ?>
+              <?php $chamados_dados = explode('#', $chamado); 
+              
+              if($_SESSION["perfil_id"] === 2) {
+                // Será exibido os chamados abertos pelo usuário
+                if($_SESSION["id_user"] != $chamados_dados[0]) {
+                  continue; // Se os IDs forem diferentes, então será desconsiderado e o restante do código será rodado normalmente
+                }
+              }
+              
+              ?>
+
               <div class="card mb-3 bg-light">
                 <div class="card-body">
-                  <h5 class="card-title"><?php echo $chamados_dados[0] ?></h5>
-                  <h6 class="card-subtitle mb-2 text-muted"><?php echo $chamados_dados[1] ?></h6>
-                  <p class="card-text"><?php echo $chamados_dados[2] ?></p>
+                  <h5 class="card-title"><?php echo $chamados_dados[1] ?></h5>
+                  <h6 class="card-subtitle mb-2 text-muted"><?php echo $chamados_dados[2] ?></h6>
+                  <p class="card-text"><?php echo $chamados_dados[3] ?></p>
 
                 </div>
               </div>
